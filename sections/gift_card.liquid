@@ -1,0 +1,25 @@
+<div class="padding-global padding-section-medium"><div class="container-medium"><div class="gift_wrapper"><div class="gift-card_component"><div id="w-node-_63031025-1b87-5546-089e-7694c1f14a40-07bb8fd7" class="gift-card_content-left"><div class="max-width-medium"><div><div class="margin-bottom margin-medium"><img src="{{ brand.logo }}" loading="lazy" li-object:src="brand.logo" alt="" class="gift-card_logo">
+</div><div class="margin-bottom margin-xlarge"><div li-object:text="gift_card.initial_value | money" class="heading-style-h1 text-style-allcaps text-weight-bold text-font-headings">
+{{ gift_card.initial_value | money }}
+</div><div class="flex-h is-gap-tiny"><div class="text-size-medium">Remaining balance:</div><div li-object:text="gift_card.balance | money" class="text-size-medium">
+{{ gift_card.balance | money }}
+</div></div></div></div></div><div class="flex-h is-space-between"><div li-object="gift_card.code" class="text-font-headings text-style-allcaps text-weight-semibold">{{ gift_card.code }}</div>{% if gift_card.expires_on != nil %}    <div li-if="gift_card.expires_on != nil" class="text-font-headings text-size-small text-style-muted">
+    Expires on: <span li-object:text="gift_card.expires_on | date: '%B %d, %Y'">
+{{ gift_card.expires_on | date: '%B %d, %Y' }}
+</span>    </div>
+{% endif %}</div></div><div id="w-node-_682d4fe9-47f7-61f3-740c-baf855d08519-07bb8fd7" class="gift-card_content-right"><div class="margin-bottom margin-large"><div class="margin-bottom margin-small">{% if gift_card.recipient != nil %}    <div li-if="gift_card.recipient != nil" class="flex-v is-gap-tiny">
+    <div class="text-size-small">Issued to:</div><div li-object="gift_card.recipient.name" class="text-size-large text-font-headings text-weight-semibold">{{ gift_card.recipient.name }}</div>    </div>
+{% endif %}</div>{% if gift_card.message != nil %}    <div li-if="gift_card.message != nil">
+    <p li-object="gift_card.message">{{ gift_card.message }}</p>    </div>
+{% endif %}</div><a li-object:href="gift_card.pass_url" href="{{ gift_card.pass_url }}" class="gift-card_wallet-wrapper w-inline-block"><img src="{{ 'apple-wallet.svg' | asset_url }}" loading="lazy" alt="" class="gift-card_wallet-icon">
+</a></div>{% if gift_card.expired == true or gift_card.enabled == false %}    <div li-if="gift_card.expired == true or gift_card.enabled == false" id="w-node-_96bb4e4c-6dbc-76f9-02fe-3cda7fc9c437-07bb8fd7" class="gift-card_overlay">
+    <div class="text-align-center">{% if gift_card.enabled == false %}    <div li-if="gift_card.enabled == false" class="flex-v">
+    <div class="gift-card_disabled-text">Not enabled yet</div><div>
+{{ section.settings.text_disabled_description }}
+</div>
+    </div>
+{% endif %}{% if gift_card.expired %}    <div li-if="gift_card.expired" class="flex-v">
+    <div class="gift-card_disabled-text">Expired</div><div>Expired on <span li-object="gift_card.expires_on | date: format: 'month_day_year'">{{ gift_card.expires_on | date: format: 'month_day_year' }}</span></div>    </div>
+{% endif %}</div>    </div>
+{% endif %}</div></div><div class="margin-top margin-medium"><div class="text-align-center"><p> {{ section.settings.textarea_description }} </p>
+</div></div></div></div> {% schema %} {"tag":"section","name":"Gift Card","class":"section_default","settings":[{"id":"text_disabled_description","type":"text","label":"Disabled Description","default":"Contact us for more information."},{"id":"textarea_description","type":"textarea","label":"Description","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."}],"presets":[{"name":"Gift Card","category":"Liquify"}]} {% endschema %}

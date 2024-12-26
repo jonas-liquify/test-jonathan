@@ -1,0 +1,29 @@
+<div class="padding-global"><div class="container-large"><div class="padding-section-large"><div class="testimonial-slider_component"><div class="margin-bottom margin-xhuge"><div class="testimonials_list">{% for block in section.blocks %}
+    {% if block.type == "testimonial" %}
+                    <div li-block="Testimonial" class="testimonial-slider_item">
+                                    <div class="margin-bottom margin-medium"><p class="text-size-medium text-weight-semibold"> {{ block.settings.textarea_testimonial }} </p>
+</div>
+                                    <div class="text-align-left"><div class="flex-h is-gap-medium"><div class="testimonial-slider_image-wrapper"><img src="{{ block.settings.image_testimonial_portrait | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_testimonial_portrait.alt }}" class="testimonial-slider_image"}>
+</div><div class="flex-v"><div class="text-weight-bold">
+{{ block.settings.text_full_name }}
+</div>
+<div class="text-size-small">
+{{ block.settings.text_subtext }}
+</div>
+</div></div></div>
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div><div class="container-medium"><div class="meta_list"><div class="meta_item"><div class="flex-h is-gap-medium"><img src="{{ section.settings.image_feature_icon_1 | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_feature_icon_1.alt }}" class="icon-1x1-small"}>
+<div>
+{{ section.settings.text_feature_label_1 }}
+</div>
+</div></div><div class="meta_separator"></div><div class="meta_item"><div class="flex-h is-gap-medium"><img src="{{ section.settings.image_feature_icon_2 | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_feature_icon_2.alt }}" class="icon-1x1-small"}>
+<div>
+{{ section.settings.text_feature_label_2 }}
+</div>
+</div></div><div class="meta_separator"></div><div class="meta_item"><div class="flex-h is-gap-medium"><img src="{{ section.settings.image_feature_icon_3 | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_feature_icon_3.alt }}" class="icon-1x1-small"}>
+<div>
+{{ section.settings.text_feature_label_3 }}
+</div>
+</div></div></div></div></div></div></div></div> {% schema %} {"tag":"section","name":"testimonials","class":"section background-color-offwhite100 position-relative w-variant-5332db74-8a39-7294-dc23-a4f3a411aba4","blocks":[{"name":"Testimonial","type":"testimonial","settings":[{"id":"textarea_testimonial","type":"textarea","label":"Testimonial","default":"\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.\" "},{"id":"image_testimonial_portrait","type":"image_picker","label":"Testimonial Portrait"},{"id":"text_full_name","type":"text","label":"Full name","default":"Name Surname"},{"id":"text_subtext","type":"text","label":"Subtext","default":"Title"}]}],"settings":[{"id":"image_feature_icon_1","type":"image_picker","label":"Feature Icon 1"},{"id":"text_feature_label_1","type":"text","label":"Feature Label 1","default":"Free 5-day shipping"},{"id":"image_feature_icon_2","type":"image_picker","label":"Feature Icon 2"},{"id":"text_feature_label_2","type":"text","label":"Feature Label 2","default":"Free 5-day shipping"},{"id":"image_feature_icon_3","type":"image_picker","label":"Feature Icon 3"},{"id":"text_feature_label_3","type":"text","label":"Feature Label 3","default":"Free 5-day shipping"}],"presets":[{"name":"testimonials","category":"Liquify"}]} {% endschema %}

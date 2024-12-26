@@ -1,0 +1,16 @@
+<div class="padding-global"><div class="container-large"><div class="padding-section-small">{% if section.settings.checkbox_display_title_paragraph == true %}
+<div class="title-wrapper"><div class="max-width-large align-center"><div class="text-align-center"><div class="margin-bottom margin-small"><h2>
+{{ section.settings.text_heading }}
+</h2>
+</div><div class="margin-bottom margin-medium"><p> {{ section.settings.textarea_paragraph }} </p>
+</div><div class="button-group is-centered"><a data-wf--module-button-primary--variant="base" href="{{ section.settings.url_primary_button_link }}" class="button is-icon w-inline-block"> <div>{{ section.settings.text_primary_button_label }}</div><div data-w-id="64fe5f88-e72c-dffb-a813-38578064b7ca" class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 20 8" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M1 4L16 4L15.261 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 6.39998V1.59998L19.2 3.99998L16 6.39998Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div> </a>
+</div></div></div></div>{% endif %}
+<div class="margin-top margin-medium"><div class="products_list">{% for product in section.settings.collection_collection.products limit: section.settings.collection_collection_limit %}
+<div li-paginate:by="8" id="w-node-_4c08c81e-e818-c3ab-c1cd-981fe2ba4293-e2ba4281" class="products_list-item">
+    
+    {% render 'product_item', product: product %}
+
+    
+</div>
+{% endfor %}
+</div></div></div></div></div> {% schema %} {"tag":"section","name":"products-list-1","class":"section background-colorgray300","settings":[{"id":"checkbox_display_title_paragraph","type":"checkbox","label":"Display Title + Paragraph","default":true},{"id":"text_heading","type":"text","label":"Heading","default":"Collection name here"},{"id":"textarea_paragraph","type":"textarea","label":"Paragraph","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla."},{"id":"url_primary_button_link","type":"url","label":"Primary Button -> Link"},{"id":"text_primary_button_label","type":"text","label":"Primary Button -> Label","default":"Browse more"},{"id":"collection_collection","type":"collection","label":"Collection"},{"type":"range","id":"collection_collection_limit","min":1,"max":99,"step":1,"label":"Limit: Collection","default":6}],"presets":[{"name":"products-list-1","category":"Liquify"}]} {% endschema %}

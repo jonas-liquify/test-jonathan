@@ -1,0 +1,12 @@
+<div class="padding-global"><div class="container-large"><div class="padding-section-large"><div class="blogs_component"><div class="blogs_content"><div class="blogs_list-wrapper"><div class="w-layout-grid blogs_list">{% for article in blog.articles %}    <div li-for="article in blog.articles">
+                                    
+                            <a li-object:href="article.url" data-wf--item-blog-card--variant="base" data-w-id="590ae6ad-affa-3b8d-a642-09ad87918502" href="{{ article.url }}" class="blogs_item-link w-inline-block"><div class="blogs_image-wrapper"><div li-for:inside="tag in article.tags | first">
+        {% for tag in article.tags | first %}                            
+                            <div class="blogs_tag"><div li-object="tag.title">{{ tag.title }}</div></div>
+                            
+                    {% endfor %}    </div>
+<img li-object:src="article.image | image_url: 'medium'" li-object:alt="article.image.alt" alt="{{ article.image.alt }}" src="{{ article.image | image_url: 'medium' }}" loading="lazy" class="blogs_image">
+</div><div class="blogs_item-content"><div class="margin-bottom margin-xxsmall"><h3 li-object="article.title" class="heading-style-h5">{{ article.title }}</h3></div><div li-object="article.excerpt" class="text-size-regular text-style-2lines">{{ article.excerpt }}</div></div></a>
+                            
+                        </div>
+{% endfor %}</div></div></div></div></div></div></div> {% schema %} {"tag":"section","name":"All blogs","class":"section_blogs","presets":[{"name":"All blogs","category":"Liquify"}]} {% endschema %}

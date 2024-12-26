@@ -1,0 +1,9 @@
+<div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="layout13_component"><div class="w-layout-grid layout13_content"><div class="layout13_content-left"><div class="margin-bottom margin-xsmall"><div class="text-style-allcaps text-weight-semibold">
+{{ section.settings.text_subtitle }}
+</div>
+</div><div class="margin-bottom margin-small"><h2 class="heading-style-h2">
+{{ section.settings.text_title }}
+</h2>
+</div><div class="margin-bottom margin-small"><p class="text-size-medium"> {{ section.settings.textarea_paragraph }} </p>
+</div></div><div class="layout13_image-wrapper"><img loading="lazy" alt="{{ section.settings.image_image.alt }}" src="{{ section.settings.image_image | img_url: 'master' }}" class="layout13_image"}>
+</div></div></div></div></div></div> {% schema %} {"tag":"section","name":"Feature 1","class":"section_feature","settings":[{"id":"text_subtitle","type":"text","label":"Subtitle","default":"subtitle"},{"id":"text_title","type":"text","label":"Title","default":"Medium length section heading goes here"},{"id":"textarea_paragraph","type":"textarea","label":"Paragraph","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat."},{"id":"image_image","type":"image_picker","label":"Image"}],"presets":[{"name":"Feature 1","category":"Liquify"}]} {% endschema %}

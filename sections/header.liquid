@@ -1,0 +1,261 @@
+<div class="navbar_container"><div class="navbar_content-left"><a href="{{ routes.root_url }}" li-object:href="routes.root_url" aria-label="Home" class="navbar_logo-link w-nav-brand"><img src="{{ brand.logo }}" loading="lazy" li-object:src="brand.logo" alt="" class="navbar_logo">
+</a>{% if localization.available_countries.size > 1 %}    <div li-if="localization.available_countries.size > 1" class="hide-tablet">
+    {% form 'localization', class: 'language_form' %}
+<div data-hover="false" data-delay="0" title="Select country" aria-label="Select country" data-wf--item-language-dropdown--variant="base" class="language_dropdown w-dropdown"><div class="language_toggle w-dropdown-toggle"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 18" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M9 17C11.8364 15.6182 13.3636 12.5636 13.3636 9C13.3636 5.43636 11.8364 2.38182 9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.99987 17C6.1635 15.6182 4.63623 12.5636 4.63623 9C4.63623 5.43636 6.1635 2.38182 8.99987 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 17V16.2727V1.72727V1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1 9H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><nav class="language_dropdown-list w-dropdown-list"><div li-for:inside="country in localization.available_countries" class="language_dropdown-content">
+        {% for country in localization.available_countries %}                            
+                            <div class="language_item-wrapper"><a href="#" class="language_dropdown-item w-inline-block"><div class="language_item-content"><img src="{{ localization.country | image_url: width: 16 }}" loading="lazy" li-object:src="localization.country | image_url: width: 16" alt="" class="language_flag-icon">
+<div li-object="country.name">{{ country.name }}</div></div><div li-object="country.currency" class="text-style-muted">{{ country.currency }}</div></a></div>
+                            
+                    {% endfor %}    </div>
+<input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+</nav></div>{% endform %}
+    </div>
+{% endif %}</div><nav role="navigation" class="navbar_menu w-nav-menu"><div class="navbar_menu-links"><div data-delay="200" data-hover="true" data-w-id="e12124f0-be88-1d1f-8842-8769fcd4bfbe" class="navbar_menu-dropdown w-dropdown"><div class="navbar_dropdown-toggle w-dropdown-toggle"><div>Shop</div><div class="dropdown-chevron w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 20 20"><title>compass</title><g fill="currentcolor"><circle cx="10" cy="10" r="7" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle><path d="m12.2041,6.8105l-3.5,1.5c-.1768.0762-.3174.2168-.3936.394l-1.5,3.5c-.1211.2817-.0576.6089.1592.8257.1436.1436.335.2197.5303.2197.0996,0,.2002-.02.2959-.0605l3.5-1.5c.1768-.0762.3174-.2168.3936-.394l1.5-3.5c.1211-.2817.0576-.6089-.1592-.8257s-.542-.2788-.8262-.1592Z" fill="currentcolor" stroke-width="0"></path></g></svg></div></div><nav class="megamenu_component w-dropdown-list"><div class="megamenu_content-wrapper"><div class="megamenu_content"><div class="megamenu_link-list"><div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-black">
+{{ section.settings.text_main_menu_title }}
+</div>
+</div>{% for linklists.main-menu.links %}    <div li-for="linklists.main-menu.links" class="megamenu_item-wrapper">
+                                    
+                            <a li-object:href="link.url" href="{{ link.url }}" class="megamenu_item w-inline-block"><div li-object="link.title" class="text-weight-bold">{{ link.title }}</div></a>
+                            
+                        </div>
+{% endfor %}</div><div id="w-node-e12124f0-be88-1d1f-8842-8769fcd4bfde-fcd4bf96" class="megamenu_link-list"><div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-black">
+{{ section.settings.text_collection_list_title }}
+</div>
+</div>{% for collecton in collections %}    <div li-for="collecton in collections" class="megamenu_item-wrapper">
+                                    
+                            <a li-object="collection.url" href="../shop/list-collections.html" class="megamenu_item w-inline-block">{{ collection.url }}</a>
+                            
+                        </div>
+{% endfor %}</div><div id="w-node-e12124f0-be88-1d1f-8842-8769fcd4bff6-fcd4bf96" class="megamenu_featured-wrapper"><div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-black">
+{{ section.settings.text_featured_area_title }}
+</div>
+</div><div class="megamenu_featured-list">{% for product in section.settings.collection_featured_collection.products limit: section.settings.collection_featured_collection_limit %}
+<div id="w-node-_75bbc3f0-8a67-8274-674d-7dc7aff0a42f-fcd4bf96" class="megamenu_featured-item">
+    
+    <a li-object:href="product.url" id="w-node-afd2f44a-ffdf-c7fa-9f28-fb68224f16ae-224f16ae" data-wf--item-product-small--variant="base" data-w-id="afd2f44a-ffdf-c7fa-9f28-fb68224f16ae" href="{{ product.url }}" class="products-small_item w-inline-block"><div class="margin-bottom margin-small"><div class="products-small_image-wrapper"><img src="{{ product.featured_media | image_url: width: 150 }}" loading="lazy" li-object:src="product.featured_media | image_url: width: 150" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" class="products-small_image">
+</div></div><div class="products-small_content-bottom"><div class="text-style-muted text-size-small">Product variant here</div><div li-object="product.title" class="text-weight-bold">{{ product.title }}</div><div li-object="product.price | money">{{ product.price | money }}</div></div></a>
+    
+</div>
+{% endfor %}
+</div></div></div></div></nav></div>{% for block in section.blocks %}
+    {% if block.type == "navigation-link" %}
+                    <div li-block="Navigation Link" class="div-block">
+                                    <a href="{{ block.settings.url_link }}" class="navbar_link w-nav-link"> {{ block.settings.text_label }} </a>
+
+                            </div>
+            {% endif %}
+{% endfor %}
+</div><div class="navbar_menu-buttons"><div class="navbar_functions-wrapper">{% if shop.customer_accounts_optional %}    <div li-if="shop.customer_accounts_optional" class="display-inline-block">
+    <a aria-label="Login" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="navbar_link is-icon w-inline-block"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 19" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M9.00003 1.71429C9.45418 1.71429 9.82232 1.33053 9.82232 0.857143C9.82232 0.38376 9.45418 0 9.00003 0C8.54587 0 8.17773 0.38376 8.17773 0.857143C8.17773 1.33053 8.54587 1.71429 9.00003 1.71429Z" fill="currentColor"></path><path d="M5.65579 2.45574C6.10993 2.45574 6.47808 2.07198 6.47808 1.5986C6.47808 1.12521 6.10993 0.741455 5.65579 0.741455C5.20165 0.741455 4.8335 1.12521 4.8335 1.5986C4.8335 2.07198 5.20165 2.45574 5.65579 2.45574Z" fill="currentColor"></path><path d="M2.88943 4.55059C3.34357 4.55059 3.71172 4.16683 3.71172 3.69345C3.71172 3.22006 3.34357 2.8363 2.88943 2.8363C2.43529 2.8363 2.06714 3.22006 2.06714 3.69345C2.06714 4.16683 2.43529 4.55059 2.88943 4.55059Z" fill="currentColor"></path><path d="M1.17923 7.63714C1.63337 7.63714 2.00152 7.25338 2.00152 6.77999C2.00152 6.30661 1.63337 5.92285 1.17923 5.92285C0.725091 5.92285 0.356934 6.30661 0.356934 6.77999C0.356934 7.25338 0.725091 7.63714 1.17923 7.63714Z" fill="currentColor"></path><path d="M0.822293 11.1814C1.27644 11.1814 1.64459 10.7977 1.64459 10.3243C1.64459 9.85091 1.27644 9.46716 0.822293 9.46716C0.368157 9.46716 0 9.85091 0 10.3243C0 10.7977 0.368157 11.1814 0.822293 11.1814Z" fill="currentColor"></path><path d="M1.87918 14.5715C2.33331 14.5715 2.70147 14.1877 2.70147 13.7143C2.70147 13.2409 2.33331 12.8572 1.87918 12.8572C1.42503 12.8572 1.05688 13.2409 1.05688 13.7143C1.05688 14.1877 1.42503 14.5715 1.87918 14.5715Z" fill="currentColor"></path><path d="M16.1211 14.5715C16.5753 14.5715 16.9434 14.1877 16.9434 13.7143C16.9434 13.2409 16.5753 12.8572 16.1211 12.8572C15.667 12.8572 15.2988 13.2409 15.2988 13.7143C15.2988 14.1877 15.667 14.5715 16.1211 14.5715Z" fill="currentColor"></path><path d="M17.1778 11.1814C17.6319 11.1814 18.0001 10.7977 18.0001 10.3243C18.0001 9.85091 17.6319 9.46716 17.1778 9.46716C16.7236 9.46716 16.3555 9.85091 16.3555 10.3243C16.3555 10.7977 16.7236 11.1814 17.1778 11.1814Z" fill="currentColor"></path><path d="M16.8208 7.63714C17.275 7.63714 17.6431 7.25338 17.6431 6.77999C17.6431 6.30661 17.275 5.92285 16.8208 5.92285C16.3667 5.92285 15.9985 6.30661 15.9985 6.77999C15.9985 7.25338 16.3667 7.63714 16.8208 7.63714Z" fill="currentColor"></path><path d="M15.1106 4.55059C15.5648 4.55059 15.9329 4.16683 15.9329 3.69345C15.9329 3.22006 15.5648 2.8363 15.1106 2.8363C14.6565 2.8363 14.2883 3.22006 14.2883 3.69345C14.2883 4.16683 14.6565 4.55059 15.1106 4.55059Z" fill="currentColor"></path><path d="M12.3443 2.45574C12.7984 2.45574 13.1666 2.07198 13.1666 1.5986C13.1666 1.12521 12.7984 0.741455 12.3443 0.741455C11.8901 0.741455 11.522 1.12521 11.522 1.5986C11.522 2.07198 11.8901 2.45574 12.3443 2.45574Z" fill="currentColor"></path><path d="M8.99982 10.2857C10.1352 10.2857 11.0556 9.32631 11.0556 8.14286C11.0556 6.95939 10.1352 6 8.99982 6C7.86448 6 6.94409 6.95939 6.94409 8.14286C6.94409 9.32631 7.86448 10.2857 8.99982 10.2857Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.0001 12.8572C11.21 12.8572 13.0755 14.3733 13.7026 16.4611C12.37 17.4311 10.7488 18 9.0001 18C7.25139 18 5.63021 17.4311 4.29761 16.4611C4.92465 14.3733 6.7902 12.8572 9.0001 12.8572Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></a>    </div>
+{% endif %}<script>
+    document.addEventListener('alpine:init', () => {
+
+    Alpine.data('handleMinicart', () => ({
+        init() {
+            console.log('handleMinicart init')
+        },
+        open: false,
+        note: null,
+        attributes: {},
+        original_total_price: 0,
+        total_price: 0,
+        total_discount: 0,
+        total_weight: 0.0,
+        item_count: 0,
+        products: [],
+        requires_shipping: false,
+        currency: 'EUR',
+        items_subtotal_price: 0,
+        cart_level_discount_applications: [],
+        cartApiResponseDefault : {
+            result : {},
+            show : false,
+            timeout : 5000,
+        },
+        cartApiResponse : {
+            result : {},
+            show : false,
+            timeout : 5000,
+        },
+
+        // deprecated:
+        total: {
+            items: 0,
+            price: 0,
+            weight: 0,
+            discount: 0,
+        },
+        _abortController : null,
+        initAbortController() {
+            if(this._abortController) {
+                this._abortController.abort('abort previous request');
+            }
+            this._abortController = new AbortController()
+        },
+        getAbortControllerSignal() {
+            return this._abortController.signal
+        },
+        resetAbortController() {
+            this._abortController = null;
+        },
+        toggleMiniCart() {
+            console.log('(minicart.js) toggleMiniCart called');
+
+            LiquifyHelper.handleTriggerClick();
+
+            this.getCart();
+        },
+
+        /**
+         * Get the cart data.
+         */
+        getCart() {
+            this.initAbortController()
+            fetch(window.Shopify.routes.root + 'cart.js', {
+                method: 'GET',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.resetAbortController();
+
+                this.total.items = data.item_count;
+
+                this.products = data.items.map((item) => {
+                    item.title = this.htmlspecialchars_decode(item.title)
+                    return item
+                })
+
+                this.total.price = data.total_price;
+                this.total.weight = data.total_weight;
+                this.total.discount = data.total_discount;
+
+                this.$dispatch('carttotalitems', data.item_count);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        },
+
+        /**
+         * @param key
+         * @param quantity
+         */
+        increaseCartItemQuantity(key, quantity) {
+            this.updateCartItemQuantity(key, parseInt(quantity) + 1);
+        },
+
+        /**
+         * @param key
+         * @param quantity
+         */
+        decreaseCartItemQuantity(key, quantity) {
+            this.updateCartItemQuantity(key, parseInt(quantity) - 1);
+        },
+
+        /**
+         * Update the cart item.
+         *
+         * @param key
+         * @param quantity
+         */
+        updateCartItemQuantity(key, quantity) {
+            this.initAbortController();
+            console.log('updateCartItemQuantity(): key, quantity: ', key, quantity);
+            this.products.filter((product)  => {
+                if(parseInt(product.key) === parseInt(key)) {
+                    product.quantity = quantity
+                }
+            })
+            let updates = {};
+            updates[key] = quantity;
+            fetch(window.Shopify.routes.root + 'cart/update.js', {
+                method: 'POST',
+                signal: this.getAbortControllerSignal(),
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ updates }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.resetAbortController();
+                    console.log('updateCartItemQuantity(): ', data);
+
+                    this.$dispatch('cartupdated');
+                    this.$dispatch('showcartmessage', { status: data.status, message: data.message, description: data.description });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    this.$dispatch('showcartmessage', { status: error?.status, message: error, description: error });
+                });
+        },
+
+        /**
+         * Format monetary values.
+         */
+        moneyFormat(value, minor = true) {
+            return LiquifyHelper.moneyFormat(value, minor)
+        },
+
+        htmlspecialchars_decode(string) {
+            return LiquifyHelper.htmlspecialchars_decode(string)
+        },
+
+        /**
+         * Shows the minicart api message
+         * @param event
+         */
+        showCartMessage(event) {
+            console.log("dispatched showCartMessage", event)
+            if(event?.detail?.status) {
+                this.cartApiResponse.result = event.detail ?? this.cartApiResponseDefault.result;
+                this.cartApiResponse.show = true
+                setTimeout(() =>  this.cartApiResponse =  this.cartApiResponseDefault, this.cartApiResponse.timeout ?? 5000)
+            }
+        },
+    }))
+});
+
+</script>
+<div data-hover="false" data-delay="0" li-element="mini-cart" class="navbar_cart-dropdown w-dropdown" x-data="handleMinicart()" x-init="getCart()" @cartupdated.window="getCart()" @setcartitem.window="updateCartItemQuantity($event.detail.product, $event.detail.quantity)" @increasecartitem.window="increaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @decreasecartitem.window="decreaseCartItemQuantity($event.detail.product, $event.detail.quantity)" @toggleminicart.window="toggleMiniCart()" @showcartmessage.window="showCartMessage"><div li-element="mini-cart-toggle" class="navbar_link is-icon w-dropdown-toggle" @click="$dispatch('cartupdated.window')"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 17" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M1 1L2.77872 1.80715C3.13531 1.96896 3.37719 2.28384 3.42127 2.64341L4.29359 9.76896C4.42581 10.8494 5.43211 11.6667 6.62988 11.6667H13.4096C14.4214 11.6667 15.3196 11.079 15.6396 10.208L16.9388 6.67072C17.1924 5.98005 16.6261 5.26677 15.8238 5.26677H3.74236" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.1138 17C6.08747 17 6.87678 16.2837 6.87678 15.4C6.87678 14.5164 6.08747 13.8 5.1138 13.8C4.14014 13.8 3.35083 14.5164 3.35083 15.4C3.35083 16.2837 4.14014 17 5.1138 17Z" fill="currentColor"></path><path d="M14.5154 17C15.4891 17 16.2784 16.2837 16.2784 15.4C16.2784 14.5164 15.4891 13.8 14.5154 13.8C13.5418 13.8 12.7524 14.5164 12.7524 15.4C12.7524 16.2837 13.5418 17 14.5154 17Z" fill="currentColor"></path></svg></div><div class="navbar_cart-counter"><div>1</div></div></div><nav li-element="mini-cart-container" class="quick-cart_wrapper w-dropdown-list" :class="open || 'mini-cart-closed'"><div class="quick-cart_inner-wrapper"><div class="quick-cart_component"><div class="quick-cart_title-wrapper"><div class="flex-h is-gap-medium"><div class="text-font-headings text-style-allcaps text-size-large text-weight-bold">your cart</div><div class="flex-h"><div class="text-font-headings text-style-allcaps text-size-large text-weight-bold">(</div><div li-element="mini-cart-item-count" class="text-font-headings text-style-allcaps text-size-large text-weight-bold" x-data="{ items: 0 }" x-text="items" @carttotalitems.window="items = event.detail">3</div><div class="text-font-headings text-style-allcaps text-size-large text-weight-bold">)</div></div></div><button title="Close cart" class="quick-cart_close-button"><div title="Close cart" class="icon-embed-tiny w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 12 12" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M1 1L11 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1 11L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></button></div><div class="quick-cart_content"><div li-element="mini-cart-full" class="quick-cart_list" :style="total.items < 1 && { display: 'none' }"><template x-for="product in products" :key="product.key">
+    <div li-element="mini-cart-item" data-wf--snippet-quick-cart-product--variant="base" class="quick-cart_item" x-init="getCart()"><div class="quick-cart_product-content"><div class="quick-cart_image-wrapper"><img class="quick-cart_image" src="{{ 'tamara-bellis-U2ymajzuqFk-unsplash.jpg' | asset_url }}" alt="" sizes="100vw" li-js-object="product.featured_image" loading="lazy" srcset="{{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-500.jpg' | asset_url }} 500w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-800.jpg' | asset_url }} 800w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-1080.jpg' | asset_url }} 1080w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-1600.jpg' | asset_url }} 1600w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash.jpg' | asset_url }} 2000w">
+</div><div class="flex-v is-align-left"><div li-js-object="product.title" class="quick-cart_product-title" x-text="product.title">Item name goes here</div><div li-js-price="product.price" x-text="LiquifyHelper.moneyFormat(product.price, true, '{{ shop.money_with_currency_format }}')">55€</div><div class="margin-top margin-small"><div class="quick-cart_counter-wrapper"><div title="Remove 1 more to cart" aria-label="Remoe 1 from cart" li-element="mini-cart-item-decrease" class="quick-cart_counter-button" :productprop="product" @click="$dispatch('decreasecartitem', { product: product.key, quantity: product.quantity, action: 'decrease' })"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 18" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><title>minus</title><g fill="currentColor"><path d="M14.7501 9.75H3.25012C2.83602 9.75 2.50012 9.4141 2.50012 9C2.50012 8.5859 2.83602 8.25 3.25012 8.25H14.7501C15.1642 8.25 15.5001 8.5859 15.5001 9C15.5001 9.4141 15.1642 9.75 14.7501 9.75Z"></path></g></svg></div></div><input li-element="mini-cart-item-quantity" aria-label="Item amount" :productprop="product" @input="$dispatch('setcartitem', { product: product.key, quantity: product.quantity })" x-model="product.quantity">
+<button title="Add 1 more to cart" aria-label="Add 1 more to cart" li-element="mini-cart-item-increase" class="quick-cart_counter-button" :productprop="product" @click="$dispatch('increasecartitem', { product: product.key, quantity: product.quantity, action: 'increase' })"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 20 20" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><title>plus</title><g fill="currentColor"><line x1="10" y1="16.5" x2="10" y2="3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line><line x1="3.5" y1="10" x2="16.5" y2="10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line></g></svg></div></button></div></div></div></div><button title="Remove from cart" aria-label="Remove from cart" li-element="mini-cart-item-remove" class="quick-cart_delete-button" :productprop="product" @click="$dispatch('setcartitem', { product: product.key, quantity: 0 })"><div class="icon-embed-tiny w-embed"><svg width="100%" height="100%" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8125 2.5625H1.1875" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.375 1.1875H4.625V2.5625H7.375V1.1875Z" fill="currentcolor" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.40313 4.625L9.15907 9.50625C9.12263 10.2378 8.51832 10.8125 7.78544 10.8125H4.21388C3.481 10.8125 2.87738 10.2378 2.84025 9.50625L2.59619 4.625" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></button></div></template>
+</div><div li-element="mini-cart-empty" class="cart_empty" :style="total.items && { display: 'none' }"><div>No items added to cart yet.</div></div></div><div class="quick-cart_bottom-content"><div class="flex-h is-space-between"><div class="flex-v"><div class="text-font-headings text-style-allcaps">subtotal</div><div class="text-style-muted">Shipping & taxes calculated at checkout</div></div><div li-js-object="cart.total_price" class="text-font-headings text-style-allcaps text-size-large text-weight-bold" x-text="cart.total_price">165.50 EUR</div></div><a href="#" class="button is-checkout w-inline-block"><div>To checkout</div></a><a href="#" class="text-style-link is-aligned-center w-inline-block"><div>Log in or create account here.</div></a></div></div><div class="quick-cart_overlay"></div></div></nav></div></div><a href="#" class="button is-search w-inline-block"><div>Search</div></a><div class="navbar_mobile-functions"><div data-hover="false" data-delay="0" title="Select country" aria-label="Select country" data-wf--item-language-dropdown--variant="base" class="language_dropdown w-dropdown"><div class="language_toggle w-dropdown-toggle"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 18" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M9 17C11.8364 15.6182 13.3636 12.5636 13.3636 9C13.3636 5.43636 11.8364 2.38182 9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.99987 17C6.1635 15.6182 4.63623 12.5636 4.63623 9C4.63623 5.43636 6.1635 2.38182 8.99987 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 17V16.2727V1.72727V1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1 9H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><nav class="language_dropdown-list w-dropdown-list"><div li-for:inside="country in localization.available_countries" class="language_dropdown-content">
+        {% for country in localization.available_countries %}                            
+                            <div class="language_item-wrapper"><a href="#" class="language_dropdown-item w-inline-block"><div class="language_item-content"><img src="{{ localization.country | image_url: width: 16 }}" loading="lazy" li-object:src="localization.country | image_url: width: 16" alt="" class="language_flag-icon">
+<div li-object="country.name">{{ country.name }}</div></div><div li-object="country.currency" class="text-style-muted">{{ country.currency }}</div></a></div>
+                            
+                    {% endfor %}    </div>
+<input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+</nav></div></div></div></nav><div class="navbar_content-right"><div class="navbar_functions-wrapper is-mobile"><a data-w-id="e12124f0-be88-1d1f-8842-8769fcd4c010" href="#" class="navbar_link is-icon w-inline-block"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 17" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M1 1L2.77872 1.80715C3.13531 1.96896 3.37719 2.28384 3.42127 2.64341L4.29359 9.76896C4.42581 10.8494 5.43211 11.6667 6.62988 11.6667H13.4096C14.4214 11.6667 15.3196 11.079 15.6396 10.208L16.9388 6.67072C17.1924 5.98005 16.6261 5.26677 15.8238 5.26677H3.74236" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.1138 17C6.08747 17 6.87678 16.2837 6.87678 15.4C6.87678 14.5164 6.08747 13.8 5.1138 13.8C4.14014 13.8 3.35083 14.5164 3.35083 15.4C3.35083 16.2837 4.14014 17 5.1138 17Z" fill="currentColor"></path><path d="M14.5154 17C15.4891 17 16.2784 16.2837 16.2784 15.4C16.2784 14.5164 15.4891 13.8 14.5154 13.8C13.5418 13.8 12.7524 14.5164 12.7524 15.4C12.7524 16.2837 13.5418 17 14.5154 17Z" fill="currentColor"></path></svg></div><div class="navbar_cart-counter"><div>1</div></div></a><a href="#" class="navbar_link is-icon w-inline-block"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 19" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M9.00003 1.71429C9.45418 1.71429 9.82232 1.33053 9.82232 0.857143C9.82232 0.38376 9.45418 0 9.00003 0C8.54587 0 8.17773 0.38376 8.17773 0.857143C8.17773 1.33053 8.54587 1.71429 9.00003 1.71429Z" fill="currentColor"></path><path d="M5.65579 2.45574C6.10993 2.45574 6.47808 2.07198 6.47808 1.5986C6.47808 1.12521 6.10993 0.741455 5.65579 0.741455C5.20165 0.741455 4.8335 1.12521 4.8335 1.5986C4.8335 2.07198 5.20165 2.45574 5.65579 2.45574Z" fill="currentColor"></path><path d="M2.88943 4.55059C3.34357 4.55059 3.71172 4.16683 3.71172 3.69345C3.71172 3.22006 3.34357 2.8363 2.88943 2.8363C2.43529 2.8363 2.06714 3.22006 2.06714 3.69345C2.06714 4.16683 2.43529 4.55059 2.88943 4.55059Z" fill="currentColor"></path><path d="M1.17923 7.63714C1.63337 7.63714 2.00152 7.25338 2.00152 6.77999C2.00152 6.30661 1.63337 5.92285 1.17923 5.92285C0.725091 5.92285 0.356934 6.30661 0.356934 6.77999C0.356934 7.25338 0.725091 7.63714 1.17923 7.63714Z" fill="currentColor"></path><path d="M0.822293 11.1814C1.27644 11.1814 1.64459 10.7977 1.64459 10.3243C1.64459 9.85091 1.27644 9.46716 0.822293 9.46716C0.368157 9.46716 0 9.85091 0 10.3243C0 10.7977 0.368157 11.1814 0.822293 11.1814Z" fill="currentColor"></path><path d="M1.87918 14.5715C2.33331 14.5715 2.70147 14.1877 2.70147 13.7143C2.70147 13.2409 2.33331 12.8572 1.87918 12.8572C1.42503 12.8572 1.05688 13.2409 1.05688 13.7143C1.05688 14.1877 1.42503 14.5715 1.87918 14.5715Z" fill="currentColor"></path><path d="M16.1211 14.5715C16.5753 14.5715 16.9434 14.1877 16.9434 13.7143C16.9434 13.2409 16.5753 12.8572 16.1211 12.8572C15.667 12.8572 15.2988 13.2409 15.2988 13.7143C15.2988 14.1877 15.667 14.5715 16.1211 14.5715Z" fill="currentColor"></path><path d="M17.1778 11.1814C17.6319 11.1814 18.0001 10.7977 18.0001 10.3243C18.0001 9.85091 17.6319 9.46716 17.1778 9.46716C16.7236 9.46716 16.3555 9.85091 16.3555 10.3243C16.3555 10.7977 16.7236 11.1814 17.1778 11.1814Z" fill="currentColor"></path><path d="M16.8208 7.63714C17.275 7.63714 17.6431 7.25338 17.6431 6.77999C17.6431 6.30661 17.275 5.92285 16.8208 5.92285C16.3667 5.92285 15.9985 6.30661 15.9985 6.77999C15.9985 7.25338 16.3667 7.63714 16.8208 7.63714Z" fill="currentColor"></path><path d="M15.1106 4.55059C15.5648 4.55059 15.9329 4.16683 15.9329 3.69345C15.9329 3.22006 15.5648 2.8363 15.1106 2.8363C14.6565 2.8363 14.2883 3.22006 14.2883 3.69345C14.2883 4.16683 14.6565 4.55059 15.1106 4.55059Z" fill="currentColor"></path><path d="M12.3443 2.45574C12.7984 2.45574 13.1666 2.07198 13.1666 1.5986C13.1666 1.12521 12.7984 0.741455 12.3443 0.741455C11.8901 0.741455 11.522 1.12521 11.522 1.5986C11.522 2.07198 11.8901 2.45574 12.3443 2.45574Z" fill="currentColor"></path><path d="M8.99982 10.2857C10.1352 10.2857 11.0556 9.32631 11.0556 8.14286C11.0556 6.95939 10.1352 6 8.99982 6C7.86448 6 6.94409 6.95939 6.94409 8.14286C6.94409 9.32631 7.86448 10.2857 8.99982 10.2857Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.0001 12.8572C11.21 12.8572 13.0755 14.3733 13.7026 16.4611C12.37 17.4311 10.7488 18 9.0001 18C7.25139 18 5.63021 17.4311 4.29761 16.4611C4.92465 14.3733 6.7902 12.8572 9.0001 12.8572Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></a></div><div class="navbar1_menu-button w-nav-button"><div class="menu-icon1"><div class="menu-icon1_line-top"></div><div class="menu-icon1_line-middle"><div class="menu-icon1_line-middle-inner"></div></div><div class="menu-icon1_line-bottom"></div></div></div></div></div><div class="nav-search_wrapper"><div li-section="predictive-search" tag="predictive-search" class="nav-search_component"><div class="nav-search_input-wrapper"><input placeholder="Search products..." type="search" class="nav-search_input">
+<div class="nav-search_clear-wrapper"><button title="Clear search" aria-label="Clear search input" class="nav-search_clear-button"><div title="Clear search" class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24"><title>eraser-33</title><g fill="#010503" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9L16.5 17.5" stroke="currentcolor" stroke-width="2" fill="none"></path><path d="M21.7709 9.05037L16.2207 3.50013C15.4396 2.71908 14.1733 2.71909 13.3922 3.50013L2.07852 14.8138C1.29747 15.5949 1.29747 16.8612 2.07852 17.6423L5.43637 21.0001H12.6496L21.7709 11.8788C22.5519 11.0977 22.5519 9.83142 21.7709 9.05037Z" stroke="currentcolor" stroke-width="2" fill="none"></path><path d="M12 21L22 21" stroke="currentcolor" stroke-width="2" fill="none"></path></g></svg></div></button><button title="Close search module" aria-label="Close search" class="nav-search_close-button"><div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 12 12" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M0.8125 1L10.8125 11" stroke="currentColor" stroke-width="0.948617" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0.8125 11L10.8125 1" stroke="currentColor" stroke-width="0.948617" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></button></div></div><div class="nav-search_content-wrapper">{% if predictive_search.performed %}    <div li-if="predictive_search.performed" class="nav-search_content">
+    {% if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %}    <div li-if="predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0" class="nav-search_suggestions-wrapper">
+    {% for query in predictive_search.resources.queries %}    <div li-for="query in predictive_search.resources.queries" id="w-node-e12124f0-be88-1d1f-8842-8769fcd4c066-fcd4bf96" class="nav-search_suggestions-list">
+                                    
+                            <div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-bold">Suggested products</div></div>
+                            
+                            {% for product in predictive_search.resources.products %}    <div li-for="product in predictive_search.resources.products" class="nav-search_suggestions-item">
+                                    
+                            <a li-object:href="product.url" href="{{ product.url }}" class="text-style-link is-no-underline w-inline-block"><div li-object="query.styled_text">{{ query.styled_text }}</div></a>
+                            
+                        </div>
+{% endfor %}
+                            
+                        </div>
+{% endfor %}<div id="w-node-e12124f0-be88-1d1f-8842-8769fcd4c06c-fcd4bf96" class="nav-search_suggestions-list"><div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-bold">Suggest pages</div></div>{% for page in predictive_search.resources.pages %}    <div li-for="page in predictive_search.resources.pages" class="nav-search_suggestions-item">
+                                    
+                            <a li-object:href="page.url" href="{{ page.url }}" class="text-style-link is-no-underline w-inline-block"><div li-object="page.title">{{ page.title }}</div></a>
+                            
+                        </div>
+{% endfor %}</div>    </div>
+{% endif %}<div class="nav-search_results-wrapper"><div class="nav-search_results-list">{% for product in predictive_search.resources.products %}    <div li-for="product in predictive_search.resources.products" id="w-node-bf446cd3-8540-1490-49d4-4948c84e4635-fcd4bf96" class="nav-search_results-item">
+                                    
+                            <a li-object:href="product.url" id="w-node-afd2f44a-ffdf-c7fa-9f28-fb68224f16ae-224f16ae" data-wf--item-product-small--variant="white-background" data-w-id="afd2f44a-ffdf-c7fa-9f28-fb68224f16ae" href="{{ product.url }}" class="products-small_item w-variant-57169029-aaa3-d64c-52ab-451389b8d655 w-inline-block"><div class="margin-bottom margin-small"><div class="products-small_image-wrapper"><img src="{{ product.featured_media | image_url: width: 150 }}" loading="lazy" li-object:src="product.featured_media | image_url: width: 150" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" class="products-small_image">
+</div></div><div class="products-small_content-bottom"><div class="text-style-muted text-size-small">Product variant here</div><div li-object="product.title" class="text-weight-bold">{{ product.title }}</div><div li-object="product.price | money">{{ product.price | money }}</div></div></a>
+                            
+                        </div>
+{% endfor %}</div>{% if predictive_search.resources.products | > 0 %}    <div li-if="predictive_search.resources.products | > 0" class="nav-search_empty-state">
+    <div>No results found.</div>    </div>
+{% endif %}</div>    </div>
+{% endif %}</div></div><div class="nav-search_overlay"></div></div> {% schema %} {"tag":"div","name":"header","class":"navbar_component w-nav","blocks":[{"name":"Navigation Link","type":"navigation-link","settings":[{"id":"text_label","type":"text","label":"Label","default":"Navigation link"},{"id":"url_link","type":"url","label":"Link"}]}],"settings":[{"id":"text_main_menu_title","type":"text","label":"Main Menu Title","default":"menu title"},{"id":"text_collection_list_title","type":"text","label":"Collection List Title","default":"Collection"},{"id":"text_featured_area_title","type":"text","label":"Featured Area Title","default":"popular products"},{"id":"collection_featured_collection","type":"collection","label":"Featured Collection"},{"type":"range","id":"collection_featured_collection_limit","min":1,"max":99,"step":1,"label":"Limit: Featured Collection","default":6}],"presets":[{"name":"header","category":"Liquify"}]} {% endschema %}

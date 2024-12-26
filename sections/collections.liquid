@@ -1,0 +1,9 @@
+<div class="padding-global padding-section-small"><div class="container-large"><div class="collections_list">{% for collection in collections %}    <div li-for="collection in collections" class="collections_list-item">
+                                    
+                            <a li-object:href="collection.url" id="w-node-ff935ded-b3d3-2df0-b8bf-95c77f9cfa41-07bb8fd8" data-w-id="ff935ded-b3d3-2df0-b8bf-95c77f9cfa41" href="{{ collection.url }}" class="collections_item w-inline-block"><div class="collections_image-wrapper"><img src="{{ collection.featured_image | image_url: 'master' }}" loading="lazy" li-object:src="collection.featured_image | image_url: 'master'" alt="" class="collections_image">
+</div><div class="collections_content"><div li-object:text="collection.title" class="text-size-large text-weight-bold">
+{{ collection.title }}
+</div><div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 18" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><title>18px_circle-open-arrow-right</title><g fill="currentColor"><path d="M9,1C4.842,1,1.418,4.189,1.038,8.25H10.439l-1.97-1.97c-.293-.293-.293-.768,0-1.061s.768-.293,1.061,0l3.25,3.25c.293,.293,.293,.768,0,1.061l-3.25,3.25c-.146,.146-.338,.22-.53,.22s-.384-.073-.53-.22c-.293-.293-.293-.768,0-1.061l1.97-1.97H1.038c.38,4.061,3.804,7.25,7.962,7.25,4.411,0,8-3.589,8-8S13.411,1,9,1Z" fill="currentColor"></path></g></svg></div></div></a>
+                            
+                        </div>
+{% endfor %}</div></div></div> {% schema %} {"tag":"section","name":"Collections","class":"section_collections","presets":[{"name":"Collections","category":"Liquify"}]} {% endschema %}

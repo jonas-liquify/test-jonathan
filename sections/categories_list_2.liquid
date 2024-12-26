@@ -1,0 +1,21 @@
+<div li-content-for-blocks="Category Item" class="categories_list">
+{% for block in section.blocks %}
+    {% case block.type %}
+        {% when '@app' %}
+            {% render block %}
+    {% for collection in collections | limit: 4 %}    <div li-for="collection in collections | limit: 4" class="categories_list-item">
+                                    
+                            <a li-object:href="collction.url" li-snippet="collection-item" li-snippet:collection="collection" id="w-node-d436f5ce-581a-f0bb-1e2e-6ba8c2588f16-c2588f16" href="{{ collction.url }}" class="categories_item w-inline-block" collection="{{ collection }}"><div class="margin-bottom margin-medium"><div class="categories_image-wrapper"><img class="categories_image" src="{{ collection.image | image_url 'medium' }}" alt="{{ collection.title }}" sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 95vw, 100vw" li-object:src="collection.image | image_url 'medium'" loading="lazy" li-object:alt="collection.title" srcset="{{ 'small-image-p-500.png' | asset_url }} 500w, {{ 'small-image.png' | asset_url }} 800w">
+</div></div><div class="text-align-center"><div class="categories_content"><div class="margin-bottom margin-xxsmall"><h2 li-object:text="collection.title" class="text-size-xlarge text-weight-semibold">
+{{ collection.title }}
+</h2></div><div li-object:text="collection.description">
+{{ collection.description }}
+</div></div></div></a>
+                            
+                        </div>
+{% endfor %}    {% endcase %}
+{% endfor %}
+
+</div>
+
+ {% schema %} {"tag":"section","name":"categories-list-2","class":"section_categories","blocks":[{"type":"@app"}],"presets":[{"name":"categories-list-2","category":"Liquify"}]} {% endschema %}

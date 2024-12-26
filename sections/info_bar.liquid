@@ -1,0 +1,20 @@
+<div li-content-for-blocks="Info Item" class="info_list">
+{% for block in section.blocks %}
+    {% case block.type %}
+        {% when '@app' %}
+            {% render block %}
+    {% when 'info-item' %}
+            <div li-block="Info Item" data-wf--block-info-item--variant="base" class="info_item">
+                    <img src="{{ block.settings.image_icon | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_icon.alt }}" class="icon-1x1-small"}>
+
+                    <div>
+{{ block.settings.text_label }}
+</div>
+
+                </div>
+        {% endcase %}
+{% endfor %}
+
+</div>
+
+ {% schema %} {"tag":"section","name":"info-bar","class":"section_info","blocks":[{"type":"@app"},{"name":"Info Item","type":"info-item","settings":[{"id":"image_icon","type":"image_picker","label":"Icon"},{"id":"text_label","type":"text","label":"Label","default":"free 5-day shipping"}]}],"presets":[{"name":"info-bar","category":"Liquify"}]} {% endschema %}

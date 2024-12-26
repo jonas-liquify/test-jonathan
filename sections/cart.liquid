@@ -1,0 +1,38 @@
+<div class="padding-global"><div class="container-large"><div class="headline-wrapper"><h2 id="w-node-e70215e6-46ed-17af-2aa7-195241f33af3-07bb8fd2" class="heading-style-h2">
+{{ section.settings.text_heading }}
+</h2>
+<a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="text-size-small text-style-link hide-mobile-landscape">Continue shopping</a></div>{% if cart.item_count > 0 %}    <div li-if="cart.item_count > 0" class="cart_form-block w-form">
+    {% form 'cart', cart, class: 'cart_grid-wrapper' %}
+<div class="cart_table outline-solid-1"><div class="cart_grid is-header w-hidden-tiny"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33afb-07bb8fd2" class="cart_table-header"><p class="text-size-regular">Products</p></div></div><div class="cart_line-item-list">{% for line_item in cart.items %}    <div li-for="line_item in cart.items" class="cart_line-item">
+                                    
+                            <div class="cart_line-item-content-left"><div class="cart_line-item-image-wrapper"><img class="quick-cart_image" src="{{ line_item.image | img_url: 'small' }}" alt="" sizes="(max-width: 479px) 76vw, (max-width: 767px) 12vw, (max-width: 991px) 9vw, 5vw" li-object:src="line_item.image | img_url: 'small'" loading="lazy" srcset="{{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-500.jpg' | asset_url }} 500w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-800.jpg' | asset_url }} 800w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-1080.jpg' | asset_url }} 1080w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash-p-1600.jpg' | asset_url }} 1600w, {{ 'tamara-bellis-U2ymajzuqFk-unsplash.jpg' | asset_url }} 2000w">
+</div><div class="flex-v is-align-left is-gap-small"><div li-object:text="line_item.title" class="text-size-medium">
+{{ line_item.title }}
+</div><div class="flex-h is-gap-tiny"><div li-object:text="line_item.final_line_price | money">
+{{ line_item.final_line_price | money }}
+</div><div li-object:text="line_item.original_line_price | money" class="text-style-strikethrough text-color-red">
+{{ line_item.original_line_price | money }}
+</div></div></div></div>
+                            
+                            <div class="cart_line-item-content-right"><input class="form_input is-cart w-input" li-object:value="line_item.quantity" maxlength="256" name="updates[]" data-name="Updates" placeholder="1" type="number" id="updates[]" required="" value="{{ line_item.quantity }}">
+<button id="w-node-fba4896c-4317-6e42-78a0-3ebcc12d4395-07bb8fd2" title="Remove from cart" aria-label="Remove from cart" li-object:href="line_item.url_to_remove" class="quick-cart_delete-button" href="{{ line_item.url_to_remove }}"><div class="icon-embed-tiny w-embed"><svg width="100%" height="100%" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.8125 2.5625H1.1875" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.375 1.1875H4.625V2.5625H7.375V1.1875Z" fill="currentcolor" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9.40313 4.625L9.15907 9.50625C9.12263 10.2378 8.51832 10.8125 7.78544 10.8125H4.21388C3.481 10.8125 2.87738 10.2378 2.84025 9.50625L2.59619 4.625" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></button></div>
+                            
+                        </div>
+{% endfor %}</div></div><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b0a-07bb8fd2" class="cart_wrapper-right"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b0b-07bb8fd2" class="cart_table outline-solid-1"><div class="cart_grid is-header w-hidden-tiny"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b0d-07bb8fd2" class="cart_table-header"><p class="text-size-regular">Summary</p></div></div><div class="cart_content"><div class="cart_wrapper"><div class="margin-bottom margin-medium"><div class="cart_details-wrapper"><div class="text-size-regular">Sum <span class="text-size-tiny">(inkl. Vat.)</span></div><div class="cart_details-price">{% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0">
+    <div li-object="cart.original_total_price | money" class="text-color-red text-style-strikethrough">{{ cart.original_total_price | money }}</div>    </div>
+{% endif %}<div li-object="cart.total_price | money" class="heading-style-h3 text-weight-bold">{{ cart.total_price | money }}</div></div></div></div>{% if cart.total_discounts > 0 %}    <div li-if="cart.total_discounts > 0" class="cart_details-wrapper is-secondary">
+    <div>Discount</div><div li-object="cart.total_discount | money">{{ cart.total_discount | money }}</div>    </div>
+{% endif %}</div><div class="cart_action"><input type="submit" data-wait="Please wait..." class="button w-button" value="Checkout" name="checkout">
+<input type="submit" data-wait="Please wait..." class="button is-search-close w-button" value="Update cart">
+</div></div></div><div class="cart_table outline-solid-1"><div class="cart_grid is-header w-hidden-tiny"><div id="w-node-e70215e6-46ed-17af-2aa7-195241f33b23-07bb8fd2" class="cart_table-header"><p class="text-size-regular">
+{{ section.settings.text_comment_title }}
+</p>
+</div></div><div class="cart_content"><div class="form_field-wrapper"><textarea class="form_input is-text-area w-input" maxlength="5000" name="note" data-name="field" placeholder="Comment" id="CartNote"></textarea></div></div></div></div>{% endform %}
+<div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div>    </div>
+{% endif %}{% if cart.item_count == 0 %}    <div li-if="cart.item_count == 0" class="cart_empty">
+    <div class="text-align-center"><div class="max-width-small"><div class="margin-bottom margin-small"><div class="text-size-xlarge text-weight-semibold">
+{{ section.settings.text_empty_cart_title }}
+</div>
+</div><div class="margin-bottom margin-medium"><p> {{ section.settings.textarea_empty_cart_description }} </p>
+</div><a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="button w-button">Shop Now</a></div></div>    </div>
+{% endif %}</div></div> {% schema %} {"tag":"section","name":"Cart","class":"section_account","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Cart"},{"id":"text_comment_title","type":"text","label":"Comment Title","default":"Comment"},{"id":"text_empty_cart_title","type":"text","label":"Empty Cart Title","default":"No Products yet."},{"id":"textarea_empty_cart_description","type":"textarea","label":"Empty Cart Description","default":"Click shop now to discover some of our latest arrivals, popular releases, and more."}],"presets":[{"name":"Cart","category":"Liquify"}]} {% endschema %}

@@ -1,0 +1,13 @@
+<div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="margin-bottom margin-medium"><div class="rec-blogs_top-content"><h2 class="heading-style-h3 text-weight-bold">Read more like this</h2><a data-wf--module-button-primary--variant="base" href="{{ section.settings.url_primary_button_link }}" class="button is-icon w-inline-block"> <div>{{ section.settings.text_primary_button_label }}</div> </a>
+</div></div><div class="rec-blogs_component">{% for article in blog.articles | limit: 3 %}    <div li-for="article in blog.articles | limit: 3" id="w-node-_6ed6d5af-e507-48e1-5e9a-93c2bf5f21c9-07bb8fd1">
+                                    
+                            <a li-object:href="article.url" data-wf--item-blog-card--variant="base" data-w-id="590ae6ad-affa-3b8d-a642-09ad87918502" href="{{ article.url }}" class="blogs_item-link w-inline-block"><div class="blogs_image-wrapper"><div li-for:inside="tag in article.tags | first">
+        {% for tag in article.tags | first %}                            
+                            <div class="blogs_tag"><div li-object="tag.title">{{ tag.title }}</div></div>
+                            
+                    {% endfor %}    </div>
+<img li-object:src="article.image | image_url: 'medium'" li-object:alt="article.image.alt" alt="{{ article.image.alt }}" src="{{ article.image | image_url: 'medium' }}" loading="lazy" class="blogs_image">
+</div><div class="blogs_item-content"><div class="margin-bottom margin-xxsmall"><h3 li-object="article.title" class="heading-style-h5">{{ article.title }}</h3></div><div li-object="article.excerpt" class="text-size-regular text-style-2lines">{{ article.excerpt }}</div></div></a>
+                            
+                        </div>
+{% endfor %}</div></div></div></div> {% schema %} {"tag":"section","name":"Featured Articles","class":"section_rec-blogs","settings":[{"id":"url_primary_button_link","type":"url","label":"Primary Button -> Link"},{"id":"text_primary_button_label","type":"text","label":"Primary Button -> Label","default":"view all blogs"}],"presets":[{"name":"Featured Articles","category":"Liquify"}]} {% endschema %}
