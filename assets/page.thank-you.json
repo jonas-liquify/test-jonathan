@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "callout": {
+            "type": "callout"
+        }
+    },
+    "layout": "page.thank-you",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "callout"
+    ]
+}

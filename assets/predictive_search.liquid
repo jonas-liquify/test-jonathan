@@ -1,0 +1,34 @@
+{% layout 'assets.predictive_search' %}
+<div class="nav-search_input-wrapper"><input placeholder="Search products..." type="search" class="nav-search_input">
+<div class="nav-search_clear-wrapper"><button title="Clear search" aria-label="Clear search input" class="nav-search_clear-button"><div title="Clear search" class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 24 24"><title>eraser-33</title><g fill="#010503" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9L16.5 17.5" stroke="currentcolor" stroke-width="2" fill="none"></path><path d="M21.7709 9.05037L16.2207 3.50013C15.4396 2.71908 14.1733 2.71909 13.3922 3.50013L2.07852 14.8138C1.29747 15.5949 1.29747 16.8612 2.07852 17.6423L5.43637 21.0001H12.6496L21.7709 11.8788C22.5519 11.0977 22.5519 9.83142 21.7709 9.05037Z" stroke="currentcolor" stroke-width="2" fill="none"></path><path d="M12 21L22 21" stroke="currentcolor" stroke-width="2" fill="none"></path></g></svg></div></button><button title="Close search module" aria-label="Close search" class="nav-search_close-button"><div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 12 12" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M0.8125 1L10.8125 11" stroke="currentColor" stroke-width="0.948617" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0.8125 11L10.8125 1" stroke="currentColor" stroke-width="0.948617" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></button></div></div><div class="nav-search_content-wrapper">{% if predictive_search.performed %}    {% if predictive_search.performed %}    <div li-if="predictive_search.performed" class="nav-search_content">
+    {% if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %}    {% if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %}    <div li-if="predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0" class="nav-search_suggestions-wrapper">
+    {% for query in predictive_search.resources.queries %}    {% for query in predictive_search.resources.queries %}    <div li-for="query in predictive_search.resources.queries" id="w-node-e12124f0-be88-1d1f-8842-8769fcd4c066-fcd4bf96" class="nav-search_suggestions-list">
+                                    
+                            <div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-bold">Suggested products</div></div>
+                            {% for product in predictive_search.resources.products %}    
+                            {% for product in predictive_search.resources.products %}    <div li-for="product in predictive_search.resources.products" class="nav-search_suggestions-item">
+                                    
+                            <a li-object:href="product.url" href="{{ product.url }}" class="text-style-link is-no-underline w-inline-block"><div li-object="query.styled_text">{{ query.styled_text }}</div></a>
+                            
+                        </div>
+{% endfor %}
+                            {% endfor %}
+                            
+                        
+                        </div>
+{% endfor %}{% endfor %}<div id="w-node-e12124f0-be88-1d1f-8842-8769fcd4c06c-fcd4bf96" class="nav-search_suggestions-list"><div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-bold">Suggest pages</div></div>{% for page in predictive_search.resources.pages %}    {% for page in predictive_search.resources.pages %}    <div li-for="page in predictive_search.resources.pages" class="nav-search_suggestions-item">
+                                    
+                            <a li-object:href="page.url" href="{{ page.url }}" class="text-style-link is-no-underline w-inline-block"><div li-object="page.title">{{ page.title }}</div></a>
+                            
+                        </div>
+{% endfor %}{% endfor %}</div>    </div>
+{% endif %}{% endif %}<div class="nav-search_results-wrapper"><div class="nav-search_results-list">{% for product in predictive_search.resources.products %}    {% for product in predictive_search.resources.products %}    <div li-for="product in predictive_search.resources.products" id="w-node-bf446cd3-8540-1490-49d4-4948c84e4635-fcd4bf96" class="nav-search_results-item">
+                                    
+                            <a li-object:href="product.url" id="w-node-afd2f44a-ffdf-c7fa-9f28-fb68224f16ae-224f16ae" data-wf--item-product-small--variant="white-background" data-w-id="afd2f44a-ffdf-c7fa-9f28-fb68224f16ae" href="{{ product.url }}" class="products-small_item w-variant-57169029-aaa3-d64c-52ab-451389b8d655 w-inline-block"><div class="margin-bottom margin-small"><div class="products-small_image-wrapper"><img src="{{ product.featured_media | image_url: width: 150 }}" loading="lazy" li-object:src="product.featured_media | image_url: width: 150" li-object:alt="product.featured_image.alt" alt="{{ product.featured_image.alt }}" class="products-small_image">
+</div></div><div class="products-small_content-bottom"><div class="text-style-muted text-size-small">Product variant here</div><div li-object="product.title" class="text-weight-bold">{{ product.title }}</div><div li-object="product.price | money">{{ product.price | money }}</div></div></a>
+                            
+                        </div>
+{% endfor %}{% endfor %}</div>{% if predictive_search.resources.products | > 0 %}    {% if predictive_search.resources.products | > 0 %}    <div li-if="predictive_search.resources.products | > 0" class="nav-search_empty-state">
+    <div>No results found.</div>    </div>
+{% endif %}{% endif %}</div>    </div>
+{% endif %}{% endif %}</div>{% schema %} {"tag":"div","name":"predictive-search","class":"nav-search_component","presets":[{"name":"predictive-search","category":"Liquify"}]} {% endschema %}
