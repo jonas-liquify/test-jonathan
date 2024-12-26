@@ -1,0 +1,20 @@
+{
+    "sections": {
+        "featured_blogs": {
+            "type": "featured_blogs"
+        },
+        "all_blogs": {
+            "type": "all_blogs"
+        },
+        "newsletter": {
+            "type": "newsletter"
+        }
+    },
+    "layout": "blog",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "featured_blogs",
+        "all_blogs",
+        "newsletter"
+    ]
+}

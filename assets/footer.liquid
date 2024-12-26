@@ -1,0 +1,69 @@
+{% layout 'assets.footer' %}
+<div class="padding-global"><div class="container-large"><div class="padding-vertical padding-xxlarge"><div class="w-layout-grid footer_top-wrapper"><div class="footer_left-wrapper"><div class="margin-bottom margin-large"><div class="flex-v"><a href="{{ routes.root_url }}" li-object:href="routes.root_url" aria-label="Home" class="footer_logo-link w-nav-brand"><img src="{{ brand.logo }}" loading="lazy" li-object:src="brand.logo" alt="" class="navbar_logo">
+</a><div class="margin-top margin-small"><p li-object="brand.short_description">{{ brand.short_description }}</p></div></div></div><div class="margin-bottom margin-small"><div class="text-font-headings text-style-allcaps text-weight-black text-size-medium">{{ section.settings.text_newsletter_title }}
+</div><div>{{ section.settings.textarea_newsletter_paragraph }} </div></div><div class="footer_form-block w-form">{% form 'customer', class: 'footer_form' %}
+<div><input class="form_input w-input" maxlength="256" name="contact[email]" data-name="Email 2" placeholder="Enter your email" type="email" id="email-2" required="">
+</div><input type="submit" data-wait="Please wait..." id="w-node-_7421f033-d4b9-60ad-c3e5-d492fa818e14-fa818e03" class="button w-button" value="Subscribe">
+<label class="w-checkbox" name="contact[accepts_marketing]"><div class="w-checkbox-input w-checkbox-input--inputType-custom form_checkbox"></div><input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" style="opacity:0;position:absolute;z-index:-1">
+<span class="text-size-small w-form-label" for="checkbox">By subscribing you agree to with our <a href="#"><span>Privacy Policy</span></a>and provide consent to receive updates from our company.</span></label>{% endform %}
+<div class="form_message-success-wrapper w-form-done"><div class="form_message-success"><div>Thank you! Your submission has been received!</div></div></div><div class="form_message-error-wrapper w-form-fail"><div class="form_message-error"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div><div class="w-layout-grid footer_menu-wrapper"><div id="w-node-_0c3358fb-7e77-5b2e-27cd-e1e45556de71-fa818e03" class="footer_menu-grid">{% for link in linklists['footer'].links %}    {% for link in linklists['footer'].links %}    <div li-for="link in linklists['footer'].links" class="footer_link-column">
+                                    
+                            <div class="margin-bottom margin-xsmall"><div li-object="link.title" class="text-weight-semibold">{{ link.title }}</div></div>
+                            
+                            <div class="footer_link-list"><div li-for:inside="child_link in link.links">
+        {% for child_link in link.links %}                            {% for child_link in link.links %}                            
+                            
+                            <a li-object:href="child_link.url" li-object="child_link.title" href="{{ child_link.url }}" class="footer_link">{{ child_link.title }}</a>
+                            {% endfor %}    
+                    {% endfor %}    </div>
+</div>
+                            
+                        </div>
+{% endfor %}{% endfor %}</div><div class="footer_link-column"><div class="margin-bottom margin-xsmall"><div class="text-weight-semibold">{{ section.settings.text_social_media_title }}
+</div></div><div class="footer_link-list">{% for block in section.blocks %}
+    {% if block.type == "social-media" %}
+                    {% for block in section.blocks %}
+    {% if block.type == "social-media" %}
+                    <div li-block="Social Media">
+                                    <a href="{{ block.settings.url_social_link }}" target="_blank" class="footer_social-link w-inline-block"><img src="{{ block.settings.image_social_icon | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_social_icon.alt }}" class="icon-1x1-small">
+<div>{{ block.settings.text_social_name }}</div></a>
+                            </div>
+            {% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+</div></div></div></div><div class="padding-top padding-medium"><div class="margin-bottom margin-small"><div class="footer_bottom-wrapper">{% form 'localization' %}
+<div data-hover="false" data-delay="0" title="Select country" aria-label="Select country" data-wf--item-language-dropdown--variant="list-on-top" class="language_dropdown w-dropdown"><div class="language_toggle w-dropdown-toggle"><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 18 18" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M9 17C11.8364 15.6182 13.3636 12.5636 13.3636 9C13.3636 5.43636 11.8364 2.38182 9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8.99987 17C6.1635 15.6182 4.63623 12.5636 4.63623 9C4.63623 5.43636 6.1635 2.38182 8.99987 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 17V16.2727V1.72727V1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1 9H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></div><nav class="language_dropdown-list w-variant-1681427f-92c5-ef31-116a-de9c86f88827 w-dropdown-list"><div li-for:inside="country in localization.available_countries" class="language_dropdown-content">
+        {% for country in localization.available_countries %}                            {% for country in localization.available_countries %}                            
+                            
+                            <div class="language_item-wrapper"><a href="#" class="language_dropdown-item w-inline-block"><div class="language_item-content"><img src="{{ localization.country | image_url: width: 16 }}" loading="lazy" li-object:src="localization.country | image_url: width: 16" alt="" class="language_flag-icon">
+<div li-object="country.name">{{ country.name }}</div></div><div li-object="country.currency" class="text-style-muted">{{ country.currency }}</div></a></div>
+                            {% endfor %}    
+                    {% endfor %}    </div>
+<input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+</nav></div>{% endform %}
+<div class="_1footer_icon-row">{% for block in section.blocks %}
+    {% if block.type == "shipping-icon" %}
+                    {% for block in section.blocks %}
+    {% if block.type == "shipping-icon" %}
+                    <div li-block="Shipping Icon" class="footer_icon-item">
+                                    <img src="{{ block.settings.image_icon | img_url: 'master' }}" loading="lazy" alt="{{ block.settings.image_icon.alt }}" class="footer_shipping-icon">
+
+                            </div>
+            {% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+</div><ul role="list" class="_1footer_payment-list w-list-unstyled">{% for type in shop.enabled_payment_types %}    {% for type in shop.enabled_payment_types %}    <li li-for="type in shop.enabled_payment_types" class="_1footer_payment-item">
+                                    
+                            <div li-object="type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color'" class="_1footer_payment-svg">{{ type | payment_type_svg_tag: class: 'footer_payment-img icon--full-color' }}</div>
+                            
+                        </li>
+{% endfor %}{% endfor %}</ul></div></div><div class="footer_bottom-wrapper"><div class="footer_credit-text">{{ section.settings.text_legal_disclaimer }}
+</div><div li-for:inside="link in linklists['legal'].links" class="w-layout-grid footer_legal-list">
+        {% for link in linklists['legal'].links %}                            {% for link in linklists['legal'].links %}                            
+                            
+                            <a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="footer_legal-link">{{ link.title }}</a>
+                            {% endfor %}    
+                    {% endfor %}    </div>
+</div></div></div></div></div>{% schema %} {"tag":"footer","name":"footer","class":"footer_component","blocks":[{"name":"Social Media","type":"social-media","settings":[{"id":"url_social_link","type":"url","label":"Social Link"},{"id":"image_social_icon","type":"image_picker","label":"Social Icon"},{"id":"text_social_name","type":"text","label":"Social Name","default":"Facebook"}]},{"name":"Shipping Icon","type":"shipping-icon","settings":[{"id":"image_icon","type":"image_picker","label":"Icon"}]}],"settings":[{"id":"text_newsletter_title","type":"text","label":"Newsletter Title","default":"Join our newsletter"},{"id":"textarea_newsletter_paragraph","type":"textarea","label":"Newsletter Paragraph","default":"Join our newsletter to stay up to date on features and releases."},{"id":"text_social_media_title","type":"text","label":"Social Media Title","default":"Follow us"},{"id":"text_legal_disclaimer","type":"text","label":"Legal Disclaimer","default":"\u00a9 2024 Makebo. All rights reserved."}],"presets":[{"name":"footer","category":"Liquify"}]} {% endschema %}

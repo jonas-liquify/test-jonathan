@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "404": {
+            "type": "404"
+        },
+        "category_list": {
+            "type": "category_list"
+        }
+    },
+    "layout": "404",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "404",
+        "category_list"
+    ]
+}

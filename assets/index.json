@@ -1,0 +1,56 @@
+{
+    "sections": {
+        "hero_slider": {
+            "type": "hero_slider"
+        },
+        "info_bar": {
+            "type": "info_bar"
+        },
+        "categories_list_1": {
+            "type": "categories_list_1"
+        },
+        "product_slider": {
+            "type": "product_slider"
+        },
+        "products_list_1": {
+            "type": "products_list_1"
+        },
+        "image_cta": {
+            "type": "image_cta"
+        },
+        "featured_categories": {
+            "type": "featured_categories"
+        },
+        "testimonials": {
+            "type": "testimonials"
+        },
+        "products_list_2": {
+            "type": "products_list_2"
+        },
+        "value_props": {
+            "type": "value_props"
+        },
+        "video_cta": {
+            "type": "video_cta"
+        },
+        "categories_list_2": {
+            "type": "categories_list_2"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero_slider",
+        "info_bar",
+        "categories_list_1",
+        "product_slider",
+        "products_list_1",
+        "image_cta",
+        "featured_categories",
+        "testimonials",
+        "products_list_2",
+        "value_props",
+        "video_cta",
+        "categories_list_2"
+    ]
+}

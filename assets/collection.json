@@ -1,0 +1,32 @@
+{
+    "sections": {
+        "collection_header": {
+            "type": "collection_header"
+        },
+        "category_list_1": {
+            "type": "category_list_1"
+        },
+        "info_bar": {
+            "type": "info_bar"
+        },
+        "callout": {
+            "type": "callout"
+        },
+        "testimonials": {
+            "type": "testimonials"
+        },
+        "category_list_2": {
+            "type": "category_list_2"
+        }
+    },
+    "layout": "collection",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "collection_header",
+        "category_list_1",
+        "info_bar",
+        "callout",
+        "testimonials",
+        "category_list_2"
+    ]
+}

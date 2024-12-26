@@ -1,0 +1,24 @@
+{
+    "sections": {
+        "collections_hero": {
+            "type": "collections_hero"
+        },
+        "collections": {
+            "type": "collections"
+        },
+        "product_slider": {
+            "type": "product_slider"
+        },
+        "testimonials": {
+            "type": "testimonials"
+        }
+    },
+    "layout": "list-collections",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "collections_hero",
+        "collections",
+        "product_slider",
+        "testimonials"
+    ]
+}

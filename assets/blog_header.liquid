@@ -1,0 +1,11 @@
+{% layout 'assets.blog_header' %}
+<div class="padding-global"><div class="container-large"><div class="padding-section-large"><div class="w-layout-grid blog_content"><div class="blog-title-wrapper"><div class="margin-bottom margin-medium"><div class="blog_breadcrumb-list"><a href="../shop/blog.html" class="blog_breadcrumb w-inline-block"><div>All Posts</div></a><div class="icon-embed-xxsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 8 5" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"><path d="M4.29102 4.25V0.75L6.62435 2.5L4.29102 4.25Z" fill="currentColor" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1.08301 2.5H4.58302H4.41059" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path></svg></div><a li-object:href="article.url" href="{{ article.url }}" class="blog_breadcrumb w-inline-block"><div li-object:text="article.title">
+{{ article.title }}
+</div></a></div></div><h1 li-object:text="article.title" class="text-weight-bold text-style-allcaps">
+{{ article.title }}
+</h1><div class="margin-top margin-medium"><div class="blog_meta-wrapper"><div class="flex-h is-gap-tiny"><div class="text-size-small">Published on</div><div li-object:text="article.published_at | date: '%B %d, %Y'" class="text-size-small">
+{{ article.published_at | date: '%B %d, %Y' }}
+</div></div><div class="flex-h is-gap-tiny"><div time-to-read="text-rich-text" class="text-size-small">{{ dynamic }}</div><div class="text-size-small">read</div></div><div class="flex-h is-gap-tiny"><div class="text-size-small">By</div><div li-object:text="article.author" class="text-size-small">
+{{ article.author }}
+</div></div></div></div></div><div class="blog_image-wrapper"><img li-object:src="article.image | image_url: 'master'" li-object:alt="article.image.alt" alt="{{ article.image.alt }}" src="{{ article.image | image_url: 'master' }}" loading="eager" class="blog_image">
+</div></div></div></div></div>{% schema %} {"tag":"section","name":"Blog Header","class":"section_blog-header","presets":[{"name":"Blog Header","category":"Liquify"}]} {% endschema %}

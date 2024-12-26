@@ -1,0 +1,32 @@
+{
+    "sections": {
+        "blog_header": {
+            "type": "blog_header"
+        },
+        "blog_content": {
+            "type": "blog_content"
+        },
+        "featured_articles": {
+            "type": "featured_articles"
+        },
+        "image_cta": {
+            "type": "image_cta"
+        },
+        "featured_categories": {
+            "type": "featured_categories"
+        },
+        "testimonials": {
+            "type": "testimonials"
+        }
+    },
+    "layout": "article",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "blog_header",
+        "blog_content",
+        "featured_articles",
+        "image_cta",
+        "featured_categories",
+        "testimonials"
+    ]
+}
