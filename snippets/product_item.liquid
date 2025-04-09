@@ -1,0 +1,8 @@
+<a li-object:href="product.url" href="{{ product.url }}" class="product-item_component w-inline-block"><div class="product-item_image-link"><div class="product-item_image-wrapper"><img li-object:alt="product.featured_image.alt" loading="eager" li-object:src="product.featured_image | img_url: 'master'" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" class="product-item_image">
+</div><div class="product-item_tag_list">{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true" class="product-item_tag">
+    Not in Stock    </div>
+{% endif %}{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price" class="product-item_tag is-sale">
+    Sale    </div>
+{% endif %}</div></div><div class="product-item_text-link"><div class="product-info"><div class="product-card-title"><div li-object="product.vendor" class="hide">{{ product.vendor }}</div><div><span li-object="product.title">{{ product.title }}</span></div></div><div class="product-item_price">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
+    <div li-object="product.compare_at_price | money" class="text-style-strikethrough text-style-muted">{{ product.compare_at_price | money }}</div>    </div>
+{% endif %}<div li-object="product.price | money">{{ product.price | money }}</div></div></div></div></a>
