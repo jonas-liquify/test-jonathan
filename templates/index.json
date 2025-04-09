@@ -1,0 +1,36 @@
+{
+    "sections": {
+        "hero_grid": {
+            "type": "hero_grid"
+        },
+        "brands": {
+            "type": "brands"
+        },
+        "banner_link": {
+            "type": "banner_link"
+        },
+        "featured_category": {
+            "type": "featured_category"
+        },
+        "cta_block": {
+            "type": "cta_block"
+        },
+        "category_grid": {
+            "type": "category_grid"
+        },
+        "events": {
+            "type": "events"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "hero_grid",
+        "brands",
+        "banner_link",
+        "featured_category",
+        "cta_block",
+        "category_grid",
+        "events"
+    ]
+}

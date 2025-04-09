@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "search_bar": {
+            "type": "search_bar"
+        },
+        "search_products": {
+            "type": "search_products"
+        }
+    },
+    "layout": "search",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "search_bar",
+        "search_products"
+    ]
+}

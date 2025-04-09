@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "newsletter_optin": {
+            "type": "newsletter_optin"
+        }
+    },
+    "layout": "page.newsletter-thank-you",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "newsletter_optin"
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "collection_experienc": {
+            "type": "collection_experienc"
+        },
+        "text_white": {
+            "type": "text_white"
+        }
+    },
+    "layout": "page",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "collection_experienc",
+        "text_white"
+    ]
+}
