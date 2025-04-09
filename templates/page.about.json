@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "about_us": {
+            "type": "about_us"
+        }
+    },
+    "layout": "page.about",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "about_us"
+    ]
+}
